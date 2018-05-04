@@ -1,0 +1,8 @@
+﻿@page "/"
+
+<div class="row">
+    @foreach (var boardColumn in Appstate.BoardColumnList)
+    {
+        <_BoardColumn BoardColumn=boardColumn></_BoardColumn>
+    }
+</div>

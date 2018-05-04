@@ -1,0 +1,20 @@
+﻿<div class="taskCard taskCard--@Task.Priority.ToString().ToUpper()">
+    <header class="taskCard__header">
+        <h4 class="taskCard__title">@Task.Title</h4>
+        <div class="taskCard__epicLink-wrapper">
+            <span class="taskCard__epicLink-title">@Task.Epic</span>
+        </div>
+    </header>   
+    <footer class="taskCard__footer">
+        <span class="taskCard__type">@Task.Priority.ToString()</span>
+        <div>
+            <span class="taskCard__id">Blazor-5</span>
+            <!-- <img class="taskCard__avatar" src=""> -->
+        </div>
+    </footer>
+</div>
+
+@functions{
+    public UserTask Task { get; set; }
+    
+}

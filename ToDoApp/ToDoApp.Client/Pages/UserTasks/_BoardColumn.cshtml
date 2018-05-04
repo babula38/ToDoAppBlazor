@@ -1,0 +1,20 @@
+﻿<div class="col-md-3">
+    <header class="boardColumn__header">
+        <h1 class="boardColumn__title">
+            @BoardColumn.Title
+            <a href="#" data-toggle="tooltip" title="Tooltip on top" id="idname">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </h1>
+    </header>
+    <div class="boardColumn__taskList">
+        @foreach (var task in Appstate.TaskList.Where(column => column.BoardColumnId == BoardColumn.ID))
+        {
+            <_UserTask Task="@task"></_UserTask>
+        }
+    </div>
+</div>
+
+@functions{
+    public BoardColumn BoardColumn { get; set; }
+}

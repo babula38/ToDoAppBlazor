@@ -1,0 +1,169 @@
+﻿@using ToDoApp.Server
+@using ToDoApp.Shared
+<html>
+<head>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/test3.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/taskService.js"></script>
+    <script src="js/task.ui.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">TODO</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container-fluid-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <header class="boardColumn__header">
+                    <h1 class="boardColumn__title">To do</h1>
+                </header>
+                <div class="boardColumn__taskList" id="todoTskList">
+                    @foreach (var task in Appstate.TodoList)
+                    {
+
+                        <div class="taskCard taskCard--@task.Priority.ToString().ToUpper()">
+                            <header class="taskCard__header">
+                                <h4 class="taskCard__title">@task.Title</h4>
+                                <div class="taskCard__epicLink-wrapper">
+                                    <span class="taskCard__epicLink-title">@task.Epic</span>
+                                </div>
+                            </header>
+                            <footer class="taskCard__footer">
+                                <span class="taskCard__type">@task.Priority.ToString()</span>
+                                <div>
+                                    <span class="taskCard__id">REACT-5</span>
+                                    <!-- <img class="taskCard__avatar" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJGFkOGZiYTIwLTU0YjUtNGY0Ni1hM2ZhLThlY2Y2NzU0Mzk3MA.jpg"> -->
+                                </div>
+                            </footer>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <header class="boardColumn__header">
+                    <h1 class="boardColumn__title">In Progress</h1>
+                </header>
+                @foreach (var task in Appstate.Inprogress)
+                {
+
+                    <div class="taskCard taskCard--@task.Priority.ToString().ToUpper()">
+                        <header class="taskCard__header">
+                            <h4 class="taskCard__title">@task.Title</h4>
+                            <div class="taskCard__epicLink-wrapper">
+                                <span class="taskCard__epicLink-title">@task.Epic</span>
+                            </div>
+                        </header>
+                        <footer class="taskCard__footer">
+                            <span class="taskCard__type">@task.Priority.ToString()</span>
+                            <div>
+                                <span class="taskCard__id">REACT-5</span>
+                                <!-- <img class="taskCard__avatar" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJGFkOGZiYTIwLTU0YjUtNGY0Ni1hM2ZhLThlY2Y2NzU0Mzk3MA.jpg"> -->
+                            </div>
+                        </footer>
+                    </div>
+                }
+            </div>
+            <div class="col-md-3">
+                <header class="boardColumn__header">
+                    <h1 class="boardColumn__title">Done</h1>
+                </header>
+                @foreach (var task in Appstate.Done)
+                {
+
+                    <div class="taskCard taskCard--@task.Priority.ToString().ToUpper()">
+                        <header class="taskCard__header">
+                            <h4 class="taskCard__title">@task.Title</h4>
+                            <div class="taskCard__epicLink-wrapper">
+                                <span class="taskCard__epicLink-title">@task.Epic</span>
+                            </div>
+                        </header>
+                        <footer class="taskCard__footer">
+                            <span class="taskCard__type">@task.Priority.ToString()</span>
+                            <div>
+                                <span class="taskCard__id">REACT-5</span>
+                                <!-- <img class="taskCard__avatar" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJGFkOGZiYTIwLTU0YjUtNGY0Ni1hM2ZhLThlY2Y2NzU0Mzk3MA.jpg"> -->
+                            </div>
+                        </footer>
+                    </div>
+                }
+            </div>
+            <div class="col-md-3">
+                <header class="boardColumn__header">
+                    <h1 class="boardColumn__title">Done</h1>
+                </header>
+                @foreach (var task in Appstate.Inprogress)
+                {
+
+                    <div class="taskCard taskCard--@task.Priority.ToString().ToUpper()">
+                        <header class="taskCard__header">
+                            <h4 class="taskCard__title">@task.Title</h4>
+                            <div class="taskCard__epicLink-wrapper">
+                                <span class="taskCard__epicLink-title">@task.Epic</span>
+                            </div>
+                        </header>
+                        <footer class="taskCard__footer">
+                            <span class="taskCard__type">@task.Priority.ToString()</span>
+                            <div>
+                                <span class="taskCard__id">REACT-5</span>
+                                <!-- <img class="taskCard__avatar" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAemAAAAJGFkOGZiYTIwLTU0YjUtNGY0Ni1hM2ZhLThlY2Y2NzU0Mzk3MA.jpg"> -->
+                            </div>
+                        </footer>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- App footer -->
+        <footer class="app_footer">
+            <p>
+                <!-- react-text: 97 -->You can check my
+                <!-- /react-text -->
+                <a href="https://www.linkedin.com/in/victorribero/" target="_blank">Linkedin</a>
+                <!-- react-text: 99 -->or
+                <!-- /react-text -->
+                <a target="_blank" href="http://www.wasvi.com">my website</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

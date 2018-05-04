@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.0-preview2-final" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.Shared\ToDoApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\About.cshtml" />
+    <None Include="Pages\UserTasks\_BoardColumn.cshtml" />
+    <None Include="Shared\NonAutheticateLayout.cshtml" />
+    <None Include="Shared\_Footer.cshtml" />
+    <None Include="Pages\UserTasks\_UserTask.cshtml" />
+    <None Include="Shared\NavBar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\_Footer.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\About.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\About.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Shared\NavBar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Shared\NavBar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\_UserTask.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\_UserTask.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\_BoardColumn.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\_BoardColumn.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Shared\NonAutheticateLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Shared\NonAutheticateLayout.cshtml" />
+  </ItemGroup>
+
+</Project>

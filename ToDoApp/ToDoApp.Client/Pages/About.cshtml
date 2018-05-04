@@ -1,0 +1,21 @@
+﻿@page  "/about"
+@using Microsoft.AspNetCore.Blazor.Browser.Interop
+@layout NonAutheticateLayout
+
+<h1>ur in aboutpage @count</h1>
+<button onclick="@F1">Click me</button>
+
+@functions{
+    private static int count = 0;
+    public void F1()
+    {
+        RegisteredFunction.Invoke<bool>("javascriptF1");
+
+    }
+
+    private static void F2()
+    {
+        ++count;
+
+    }
+}
