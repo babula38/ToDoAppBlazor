@@ -1,4 +1,4 @@
-﻿@implements ILayoutComponent
+﻿@inherits BlazorLayoutComponent
 
 <NavBar></NavBar>
 <div class="container-fluid">
@@ -6,7 +6,3 @@
     <!-- App footer -->
 </div>
 <_Footer></_Footer>
-
-@functions {
-public RenderFragment Body { get; set; }
-}

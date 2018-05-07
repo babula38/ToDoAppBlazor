@@ -4,7 +4,7 @@
         <div class="taskCard__epicLink-wrapper">
             <span class="taskCard__epicLink-title">@Task.Epic</span>
         </div>
-    </header>   
+    </header>
     <footer class="taskCard__footer">
         <span class="taskCard__type">@Task.Priority.ToString()</span>
         <div>
@@ -15,6 +15,7 @@
 </div>
 
 @functions{
-    public UserTask Task { get; set; }
-    
+    [Parameter]
+    private UserTask Task { get; set; }
+
 }
