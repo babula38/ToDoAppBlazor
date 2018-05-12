@@ -1,8 +1,10 @@
-﻿<div class="col-md-3">
+﻿@using Microsoft.AspNetCore.Blazor.Browser.Interop
+
+<div class="col-md-3">
     <header class="boardColumn__header">
         <h1 class="boardColumn__title">
             @BoardColumn.Title
-            <a href="#" data-toggle="tooltip" title="Tooltip on top" id="idname">
+            <a href="/createUserTask" data-toggle="tooltip" title="Tooltip on top" id="idname" ref="addElemtn">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </h1>
@@ -18,4 +20,10 @@
 @functions{
     [Parameter]
     private BoardColumn BoardColumn { get; set; }
+    private ElementRef addElemtn;
+    protected override void OnAfterRender()
+    {
+        base.OnAfterRender();
+        RegisteredFunction.Invoke<object>("displayTooltip", addElemtn);
+    }
 }

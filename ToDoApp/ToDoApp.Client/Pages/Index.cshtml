@@ -1,8 +1,17 @@
 ﻿@page "/"
-
+@inject ToDoApp.Client.Services.IUserTaskService userTaskService
+@inject HttpClient Http
 <div class="row">
     @foreach (var boardColumn in Appstate.BoardColumnList)
     {
         <_BoardColumn BoardColumn=boardColumn></_BoardColumn>
     }
 </div>
+@functions{
+    protected override async Task OnInitAsync()
+    {
+        var result = await userTaskService.GetUserTaskListAsync();
+        Console.WriteLine($"useruuuuuu {result.Count()}");
+    }
+
+}

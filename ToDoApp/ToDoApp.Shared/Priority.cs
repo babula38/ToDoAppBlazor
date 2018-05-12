@@ -6,7 +6,7 @@ namespace ToDoApp.Shared
 {
     public enum Priority
     {
-        LOW,
+        Low,
         Medium,
         High,
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Shared;
 
@@ -16,6 +17,14 @@ namespace ToDoApp.Server.Controllers
         public IEnumerable<UserTask> Get()
         {
             return Appstate.TaskList;
+        }
+
+        [HttpPost]
+        public IActionResult Post(UserTask userTask)
+        {
+            if (Appstate.AddUserTask(userTask))
+                return Ok();
+            return StatusCode(Convert.ToInt32(HttpStatusCode.InternalServerError), "Unable to add the User task");
         }
     }
 }

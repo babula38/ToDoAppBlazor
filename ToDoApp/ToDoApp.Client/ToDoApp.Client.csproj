@@ -6,6 +6,7 @@
     <RunArguments>blazor serve</RunArguments>
     <LangVersion>7.3</LangVersion>
     <RunArguments>blazor serve</RunArguments>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <None Include="Pages\About.cshtml" />
+    <None Include="Pages\UserTasks\CreateUserTask.cshtml" />
     <None Include="Pages\UserTasks\_BoardColumn.cshtml" />
     <None Include="Shared\NonAutheticateLayout.cshtml" />
     <None Include="Shared\_Footer.cshtml" />
@@ -73,6 +75,19 @@
 
   <ItemGroup>
     <BlazorGenerate Remove="Pages\UserTasks\_UserTask.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\UserTasks\CreateUserTask.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\UserTasks\CreateUserTask.cshtml" />
+    <Content Remove="wwwroot\js\file.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\file.ts" />
   </ItemGroup>
 
 </Project>

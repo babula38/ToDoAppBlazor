@@ -1,0 +1,53 @@
+﻿@page "/createUserTask"
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper _uriHelper
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <h4 class="text-on-pannel text-primary" style="text-align:center;"><strong class="text-uppercase">Create user task</strong></h4>
+            <div class="form-group">
+                <label for="Inputtitle" class="text-primary text-capitalize">Title</label>
+                <div class="input-group">
+                    <div class="input-group-addon input-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </div>
+                    <input id="title" class="form-control input-sm" type="text" placeholder="Enter title for this task" bind="@NewUserTask.Title" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEpic" class="text-primary text-capitalize">Epic</label>
+                <div class="input-group">
+                    <div class="input-group-addon input-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </div>
+                    <input id="epic" class="form-control input-sm" type="text" placeholder="Enter epic for this task" bind="@NewUserTask.Epic" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Priority
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#" onclick="@(()=>NewUserTask.Priority= Priority.Medium)">@Priority.Medium.ToString()</a></li>
+                        <li><a href="#" onclick="@(()=>NewUserTask.Priority= Priority.Low)">@Priority.Low.ToString()</a></li>
+                        <li><a href="#" onclick="@(()=>NewUserTask.Priority= Priority.High)">@Priority.High.ToString()</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick=@SaveUserTask>Create</button>
+        </div>
+    </div>
+</div>
+@functions{
+
+    public UserTask NewUserTask { get; set; } = new UserTask { BoardColumnId = 1 };
+    public void SaveUserTask()
+    {
+        bool isSuccess = Appstate.AddUserTask(NewUserTask);
+        if (isSuccess)
+            _uriHelper.NavigateTo("/");
+    }
+
+}

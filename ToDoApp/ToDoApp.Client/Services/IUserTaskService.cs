@@ -8,6 +8,6 @@ namespace ToDoApp.Client.Services
 {
     public interface IUserTaskService
     {
-        List<UserTask> GetUserTaskList();
+        Task<List<UserTask>> GetUserTaskListAsync();
     }
 }
